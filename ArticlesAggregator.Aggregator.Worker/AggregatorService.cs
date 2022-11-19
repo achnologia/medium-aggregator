@@ -10,4 +10,9 @@ public class AggregatorService : IAggregatorService
     {
         _client = client;
     }
+
+    public Task ScanAndSaveAsync()
+    {
+        throw new NotImplementedException();
+    }
 }
