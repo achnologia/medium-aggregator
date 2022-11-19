@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net7.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\ArticlesAggregator.Bot.Telegram\ArticlesAggregator.Bot.Telegram.csproj" />
+      <ProjectReference Include="..\ArticlesAggregator.DataAccess\ArticlesAggregator.DataAccess.csproj" />
+    </ItemGroup>
+
+</Project>

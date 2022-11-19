@@ -1,4 +1,4 @@
-using MediumAggregator.Aggregator.Interfaces;
+using ArticlesAggregator.Aggregator.Contracts;
 
 namespace MediumAggregator.Aggregator;
 
