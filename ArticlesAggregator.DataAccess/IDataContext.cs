@@ -4,6 +4,6 @@ namespace MediumAggregator.DataAccess;
 
 public interface IDataContext
 {
-    public Task Save(IEnumerable<Article> articles);
-    public Task Save(Article article);
+    public Task<int> Save(IEnumerable<Article> articles);
+    public Task<bool> Save(Article article);
 }
