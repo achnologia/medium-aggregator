@@ -2,5 +2,5 @@ namespace ArticlesAggregator.Aggregator.Contracts;
 
 public interface IAggregatorService
 {
-    Task ScanAndSaveAsync();
+    Task<int> LoadAndSaveAsync(ushort batchSize);
 }

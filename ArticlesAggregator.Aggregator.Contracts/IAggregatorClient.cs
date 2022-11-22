@@ -4,6 +4,6 @@ namespace ArticlesAggregator.Aggregator.Contracts;
 
 public interface IAggregatorClient
 {
-    Task<IReadOnlyCollection<ArticleDto>> LoadBasePageAsync();
+    Task<IReadOnlyCollection<ArticleDto>> LoadAsync(ushort batchSize);
     Task<IReadOnlyCollection<ArticleDto>> LoadRecommendations(string url);
 }

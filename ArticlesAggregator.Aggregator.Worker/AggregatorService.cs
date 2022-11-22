@@ -14,12 +14,17 @@ public class AggregatorService : IAggregatorService
         _dataContext = dataContext;
     }
 
-    public async Task ScanAndSaveAsync()
+    public async Task<int> LoadAndSaveAsync(ushort batchSize)
     {
-        var articles = await _client.LoadBasePageAsync();
+        var articles = await _client.LoadAsync(batchSize);
 
+        if (articles.Count == 0)
+            return 0;
+        
         var entities = articles.Select(x => x.ToEntity());
 
-        await _dataContext.Save(entities);
+        var saved = await _dataContext.Save(entities);
+
+        return saved;
     }
 }

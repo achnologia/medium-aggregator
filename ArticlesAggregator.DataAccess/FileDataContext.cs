@@ -20,8 +20,13 @@ internal class FileDataContext : IDataContext
         
         _filePath = Path.Combine(projectDirectory, _fileName);
 
-        var db = File.ReadAllText(_filePath);
-        var savedArticles = _stringConvertor.Deserialize(db);
+        var savedArticles = Enumerable.Empty<Article>();
+        
+        if (File.Exists(_filePath))
+        {
+            var db = File.ReadAllText(_filePath);
+            savedArticles = _stringConvertor.Deserialize(db);
+        }
         
         _articles = new HashSet<Article>(savedArticles);
     }
@@ -71,7 +76,7 @@ internal class StringConvertor
         var sb = new StringBuilder();
 
         sb.AppendLine($"ID:{a.Id.ToString()}");
-        sb.AppendLine($"Title:{a.Title}");
+        sb.AppendLine($"Title:{a.Title.Replace(";", "")}");
         sb.AppendLine($"Author:{a.Author}");
         sb.AppendLine($"Post Date:{a.PostDate}");
         sb.AppendLine($"Read time:{a.ReadTime}");
