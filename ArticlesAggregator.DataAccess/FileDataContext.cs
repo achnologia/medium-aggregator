@@ -144,6 +144,8 @@ internal class StringConvertor
             Url = valuesArray[5]
         };
 
+        arrayPool.Return(valuesArray);
+        
         return article;
     }
 
